@@ -1,15 +1,23 @@
 return {
     "ahmedkhalf/project.nvim",
     init = function()
-        require("project_nvim").setup {
+        require("project_nvim").setup({
             -- your configuration comes her
             -- or leave it empty to use the default settings
             -- refer to the configuration section below
             --
-            -- All the patterns used to detect root dir, when **"pattern"** is in
+            -- All the patterns used to detect root dir, when **"patter"** is in
             -- detection_methods
-            patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
-        }
+            patterns = {
+                ".git",
+                "_darcs",
+                ".hg",
+                ".bzr",
+                ".svn",
+                "Makefile",
+                "package.json",
+            },
+        })
 
         -- Absolutely minimal implementation of fzf-lua based project finder
         -- for fzf-lua, due to request from @KrisWilliams1 (Maybe extended to a
@@ -30,14 +38,16 @@ return {
                                 require("fzf-lua").files()
                             end
                         end
-                    end
-                }
+                    end,
+                },
             })
         end, {})
     end,
     keys = {
         {
-            "<leader>fp", "<cmd>FzfProjects<CR>", desc="Find Recent Projects"
-        }
-    }
+            "<leader>fp",
+            "<cmd>FzfProjects<CR>",
+            desc = "Find Recent Projects",
+        },
+    },
 }
